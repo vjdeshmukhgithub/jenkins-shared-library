@@ -1,1 +1,0 @@
-def psscript = libraryResource 'yolo.ps1'
