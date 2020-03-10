@@ -1,0 +1,1 @@
+Write-Host "If the scan result from sonarqube passes the quality gate move the package. If not fail the build"
