@@ -1,8 +1,8 @@
-function orchAuth($username, $pass){
+function orchAuth($ORCH_USER, $ORCH_PASS){
    $auth = @{
       tenancyName = 'VerticalApps'
-      usernameOrEmailAddress = '$username'
-      password = '$pass'
+      usernameOrEmailAddress = $ORCH_USER
+      password = $ORCH_PASS
    }
    $authjson = $auth | ConvertTo-Json
    $authkey = Invoke-RestMethod -SkipCertificateCheck 'https://uipath.verticalapps.com/api/Account/Authenticate' -Method Post -Body $authjson -ContentType 'application/json'
