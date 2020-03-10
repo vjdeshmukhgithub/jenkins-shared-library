@@ -1,4 +1,4 @@
-def psScriptCall(){
+def psScriptCall() {
     def psscript = libraryResource 'yolo.ps1'
-    powershell psscript
+    powershell returnStatus: true, script: psscript
 }
