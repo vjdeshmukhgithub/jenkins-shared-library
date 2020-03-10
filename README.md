@@ -46,7 +46,7 @@ You can access the syntax generator from your Jenkins on /pipeline-syntax/ path.
 
     http://your-jenkins-url.com/pipeline-syntax
 
-![](https://github.com/VerticalApps-DevOps/jenkins-shared-library/blob/master/resources/Jenkins-Pipeline-Generator.png "Jenkins Pipeline Syntax Generator) 
+![Jenkins Pipeline Syntax Generator](https://github.com/VerticalApps-DevOps/jenkins-shared-library/blob/master/resources/Jenkins-Pipeline-Generator.png "Jenkins Pipeline Syntax Generator") 
 
 ## Jenkinsfile Example
 
