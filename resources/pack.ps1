@@ -1,0 +1,1 @@
+& "C:\Program Files (x86)\UiPath\Studio\UiRobot.exe" pack "$env:WORKSPACE\$env:JOB_NAME" --output "$env:WORKSPACE\$env:JOB_NAME@tmp\Output"
