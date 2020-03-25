@@ -3,5 +3,5 @@ def call() {
 
     psCall = powershell returnStatus: true, script: psscript
 
-    if(status != 0) { powershell ("Write-Error \"Ooops, an error occured\"") }
+    if(psCall != 0) { powershell ("Write-Error \"Ooops, an error occured\"") }
 }
