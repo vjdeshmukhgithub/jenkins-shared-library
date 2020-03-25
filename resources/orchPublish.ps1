@@ -11,8 +11,8 @@ Set-Variable -Name "ts" -Value $token.result
 Write-Output $ts
 $tokenstring = ConvertTo-SecureString $ts -AsPlainText -Force
 
-$FilePath = 'C:\Program Files (x86)\Jenkins\jobs\jlea-pipeline-test\builds\26\Test.1.0.7.nupkg'
-$FieldName = 'Test.1.0.7'
+$FilePath = 'C:\Program Files (x86)\Jenkins\jobs\jlea-pipeline-test\builds\26\Test.1.0.8.nupkg'
+$FieldName = 'Test.1.0.8'
 $ContentType = 'multipart/form-data'
 
 $FileStream = [System.IO.FileStream]::new($filePath, [System.IO.FileMode]::Open)
@@ -26,4 +26,5 @@ $FileContent.Headers.ContentType = [System.Net.Http.Headers.MediaTypeHeaderValue
 $MultipartContent = [System.Net.Http.MultipartFormDataContent]::new()
 $MultipartContent.Add($FileContent)
 
-Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage' -Method Post -Authentication Bearer -Token ($tokenstring)
+$response = Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage' -Method Post -Authentication Bearer -Token ($tokenstring)
+Write-Output $response
