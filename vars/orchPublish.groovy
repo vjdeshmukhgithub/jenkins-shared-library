@@ -1,7 +1,8 @@
 import groovy.json.JsonSlurper
 
 def call() {
-   String jsonString = '''{
+   sh('echo hollo')
+   /* String jsonString = '''{
    "result": "",
    "targetUrl": "",
    "success": "",
@@ -25,7 +26,7 @@ def call() {
    println "token recieved"
 
    println parsedJson.result
-   token = parsedJson.result
+   token = parsedJson.result */
 
    //curl -XPOST --insecure -v -H 'Authorization: Bearer $token' '-F file=@C:\\Program Files (x86)\\Jenkins\\workspace\\test-shared-library@tmp\\Output\\Test.1.0.7.nupkg' 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage'
 
