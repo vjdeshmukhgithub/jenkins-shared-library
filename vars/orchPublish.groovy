@@ -13,20 +13,16 @@ def call() {
    JsonSlurper slurper = new JsonSlurper()
 
    Map parsedJson = slurper.parseText(jsonString)
-   
+
+   json='{"tenancyName": "VerticalApps", "usernameOrEmailAddress": "admin", "password": "myOrchestratorVapps11"}'
    println "starting call"
-   Map parsedJson = slurper.parseText(curl --location --insecure --request POST 'https://uipath.verticalapps.com/api/Account/Authenticate' \
-      --header 'Content-Type: application/json' \
-      --data-raw '{
-      "tenancyName": "VerticalApps",
-      "usernameOrEmailAddress": "admin",
-      "password": "myOrchestratorVapps11"
-      }')
+
+   parsedJson = [ 'bash', '-c', "curl -v -k -X POST -H \"Content-Type: application/json\" -d '${json}' https://uipath.verticalapps.com/api/Account/Authenticate" ].execute().text
    println "token recieved"
 
    println parsedJson.result
    token = parsedJson.result
 
-   curl -XPOST --insecure -v -H 'Authorization: Bearer $token' '-F file=@C:\\Program Files (x86)\\Jenkins\\workspace\\test-shared-library@tmp\\Output\\Test.1.0.7.nupkg' 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage'
+   //curl -XPOST --insecure -v -H 'Authorization: Bearer $token' '-F file=@C:\\Program Files (x86)\\Jenkins\\workspace\\test-shared-library@tmp\\Output\\Test.1.0.7.nupkg' 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage'
 
 }
