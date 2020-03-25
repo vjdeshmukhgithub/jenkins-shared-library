@@ -12,7 +12,7 @@ Write-Output $ts
 $tokenstring = ConvertTo-SecureString $ts -AsPlainText -Force
 
 $FilePath = 'C:\\Program Files (x86)\Jenkins\workspace\test-shared-library@tmp\Output\Test.1.0.7.nupkg'
-$FieldName = 'Test.1.0.5'
+$FieldName = 'Test.1.0.7'
 $ContentType = 'multipart/form-data'
 
 $FileStream = [System.IO.FileStream]::new($filePath, [System.IO.FileMode]::Open)
