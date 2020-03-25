@@ -11,7 +11,7 @@ Set-Variable -Name "ts" -Value $token.result
 Write-Output $ts
 $tokenstring = ConvertTo-SecureString $ts -AsPlainText -Force
 
-$FilePath = '/Users/a805838/Downloads/Test.1.0.5.nupkg'
+$FilePath = 'C:\\Program Files (x86)\Jenkins\workspace\test-shared-library@tmp\Output\Test.1.0.7.nupkg'
 $FieldName = 'Test.1.0.5'
 $ContentType = 'multipart/form-data'
 
@@ -27,3 +27,6 @@ $MultipartContent = [System.Net.Http.MultipartFormDataContent]::new()
 $MultipartContent.Add($FileContent)
 
 Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage' -Method Post -Authentication Bearer -Token ($tokenstring)
+
+# Invoke-RestMethod -SkipCertificateCheck 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage' -Method Post -Authentication Bearer -Token ($tokenstring) -InFile '/Users/a805838/Downloads/Test.1.0.5.nupkg' -ContentType 'multipart/form-data'
+# //curl -XPOST --insecure -v -H 'Authorization: Bearer $token' '-F file=@C:\\Program Files (x86)\\Jenkins\\workspace\\test-shared-library@tmp\\Output\\Test.1.0.7.nupkg' 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage'
