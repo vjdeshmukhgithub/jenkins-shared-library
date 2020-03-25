@@ -26,5 +26,4 @@ $FileContent.Headers.ContentType = [System.Net.Http.Headers.MediaTypeHeaderValue
 $MultipartContent = [System.Net.Http.MultipartFormDataContent]::new()
 $MultipartContent.Add($FileContent)
 
-$response = Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage' -Method Post -Authentication Bearer -Token ($tokenstring)
-Write-Output $response
+Write-Output Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage' -Method Post -Authentication Bearer -Token ($tokenstring)
