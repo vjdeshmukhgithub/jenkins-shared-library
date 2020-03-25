@@ -18,6 +18,10 @@ def call() {
    println "starting call"
 
    parsedJson = [ 'bash', '-c', "curl -v -k -X POST -H \"Content-Type: application/json\" -d '${json}' https://uipath.verticalapps.com/api/Account/Authenticate" ].execute().text
+
+   parsedJson.waitFor()
+   println parsedJson.err.text
+   println parsedJson.text
    println "token recieved"
 
    println parsedJson.result
