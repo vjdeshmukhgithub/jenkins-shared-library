@@ -1,19 +1,19 @@
 import groovy.json.JsonSlurper
 
-String jsonString = '''{
-"result": "",
-"targetUrl": "",
-"success": "",
-"error": "",
-"unAuthorizedRequest": "",
-"__abp": ""
-}'''
-
-JsonSlurper slurper = new JsonSlurper()
-
-Map parsedJson = slurper.parseText(jsonString)
-
 def call() {
+   String jsonString = '''{
+   "result": "",
+   "targetUrl": "",
+   "success": "",
+   "error": "",
+   "unAuthorizedRequest": "",
+   "__abp": ""
+   }'''
+
+   JsonSlurper slurper = new JsonSlurper()
+
+   Map parsedJson = slurper.parseText(jsonString)
+   
    println "starting call"
    Map parsedJson = slurper.parseText(curl --location --insecure --request POST 'https://uipath.verticalapps.com/api/Account/Authenticate' \
       --header 'Content-Type: application/json' \
