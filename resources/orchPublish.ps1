@@ -1,3 +1,4 @@
+$pwshScriptBlock = @'
 $auth = @{
    tenancyName = 'VerticalApps'
    usernameOrEmailAddress = 'admin'
@@ -30,3 +31,10 @@ Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent 'https://uipath.
 
 # Invoke-RestMethod -SkipCertificateCheck 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage' -Method Post -Authentication Bearer -Token ($tokenstring) -InFile '/Users/a805838/Downloads/Test.1.0.5.nupkg' -ContentType 'multipart/form-data'
 # //curl -XPOST --insecure -v -H 'Authorization: Bearer $token' '-F file=@C:\\Program Files (x86)\\Jenkins\\workspace\\test-shared-library@tmp\\Output\\Test.1.0.7.nupkg' 'https://uipath.verticalapps.com/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage'
+'@;
+
+$FilePath = "C:\Program Files\PowerShell\7\pwsh.exe";
+$ArgumentList = '-noprofile -nologo -Noninteractive -w hidden -command "& {' + $pwshScriptBlock + '}"';
+$Process = Start-Process -FilePath $FilePath -ArgumentList $ArgumentList -PassThru;
+$pwshPSObject = Import-Clixml -Path "C:\Temp\PwshCoreObject.xml";
+$pwshPSObject | Select-Object - Property $_;
