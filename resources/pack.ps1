@@ -4,4 +4,7 @@ $wkspace = $env:WORKSPACE
 $jenkhome = $env:JENKINS_HOME
 $jbname = $env:JOB_NAME
 $bldnum = $env:BUILD_NUMBER
-START UiRobot.exe pack "$wkspace\project.json" --output "$jenkhome\jobs\$jbname\builds\$bldnum"
+$out = "$jenkhome\jobs\$jbname\builds\$bldnum"
+proj = "$wkspace\project.json"
+
+START UiRobot.exe pack proj --output $out
