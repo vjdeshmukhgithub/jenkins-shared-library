@@ -7,4 +7,4 @@ $bldnum = $env:BUILD_NUMBER
 $out = "$jenkhome\jobs\$jbname\builds\$bldnum"
 $proj = "$wkspace\project.json"
 
-START UiRobot.exe pack $proj --output $out
+START UiRobot.exe -ArgumentList @("pack", $proj, "--output", $out)
