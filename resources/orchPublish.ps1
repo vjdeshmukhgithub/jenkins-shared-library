@@ -15,8 +15,8 @@ $tokenstring = ConvertTo-SecureString $ts -AsPlainText -Force
 
 Write-Output "Beginning UIPath Orchestrator publish"
 
-$FilePath = 'C:\Program Files (x86)\Jenkins\jobs\jlea-pipeline-test\builds\47\Test.1.0.8.nupkg'
-$FieldName = 'Test.1.0.8'
+$FilePath = 'C:\Program Files (x86)\Jenkins\jobs\jlea-pipeline-test\builds\47\Test.1.0.10.nupkg'
+$FieldName = 'Test.1.0.10'
 $ContentType = 'multipart/form-data'
 
 $FileStream = [System.IO.FileStream]::new($filePath, [System.IO.FileMode]::Open)
