@@ -5,6 +5,6 @@ $jenkhome = $env:JENKINS_HOME
 $jbname = $env:JOB_NAME
 $bldnum = $env:BUILD_NUMBER
 $out = "$jenkhome\jobs\$jbname\builds\$bldnum"
-proj = "$wkspace\project.json"
+$proj = "$wkspace\project.json"
 
 START UiRobot.exe pack proj --output $out
