@@ -1,1 +1,0 @@
-Write-Host 'This is cxoming from the shared library resource folder, YOLO!!!'
