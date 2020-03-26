@@ -15,7 +15,7 @@ $tokenstring = ConvertTo-SecureString $ts -AsPlainText -Force
 
 Write-Output "Beginning UIPath Orchestrator publish"
 
-$FilePath = 'C:\Program Files (x86)\Jenkins\jobs\jlea-pipeline-test\builds\26\Test.1.0.8.nupkg'
+$FilePath = 'C:\Program Files (x86)\Jenkins\jobs\jlea-pipeline-test\builds\47\Test.1.0.8.nupkg'
 $FieldName = 'Test.1.0.8'
 $ContentType = 'multipart/form-data'
 
