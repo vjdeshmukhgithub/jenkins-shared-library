@@ -6,7 +6,6 @@ $auth = @{
 
 Write-Output "Beginning UIPath Orchestrator Authentication"
 $authjson = $auth | ConvertTo-Json
-Write-Output $auth
 $authkey = Invoke-RestMethod -SkipCertificateCheck "$env:url/api/Account/Authenticate" -Method Post -Body $authjson -ContentType 'application/json'
 $authjson = $authkey | ConvertTo-Json
 $token = $authjson | ConvertFrom-Json
@@ -21,6 +20,8 @@ $Package = Get-ChildItem -Path $Directory -Filter *.nupkg
 $FilePath = $Directory + $Package.Name
 $FieldName = $Package.Name.Replace(".nupkg","")
 $ContentType = 'multipart/form-data'
+
+Write-Output "FilePath: $FilePath FieldName: $FieldName"
 
 $FileStream = [System.IO.FileStream]::new($filePath, [System.IO.FileMode]::Open)
 $FileHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new('form-data')
