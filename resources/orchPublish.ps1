@@ -1,7 +1,7 @@
 $auth = @{
    tenancyName = $env:tenant
-   usernameOrEmailAddress = $user
-   password = $pwd
+   usernameOrEmailAddress = $env:user
+   password = $env:pwd
 }
 
 Write-Output "Beginning UIPath Orchestrator Authentication"
