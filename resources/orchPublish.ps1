@@ -21,8 +21,6 @@ $FilePath = $Directory + $Package.Name
 $FieldName = $Package.Name.Replace(".nupkg","")
 $ContentType = 'multipart/form-data'
 
-Write-Output "FilePath: $FilePath FieldName: $FieldName"
-
 $FileStream = [System.IO.FileStream]::new($filePath, [System.IO.FileMode]::Open)
 $FileHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new('form-data')
 $FileHeader.Name = $FieldName
