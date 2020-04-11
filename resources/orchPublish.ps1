@@ -16,7 +16,7 @@ $tokenstring = ConvertTo-SecureString $ts -AsPlainText -Force
 
 Write-Output "Beginning UIPath Orchestrator publish"
  
-$Directory = $args[4] 
+$Directory = "$env:JENKINS_HOME\jobs\$env:JOB_NAME\builds\$env:BUILD_NUMBER"
 $Package = Get-ChildItem -Path $Directory -Filter *.nupkg
 $FilePath = $Directory + $Package.Name
 $FieldName = $Package.Name.Replace(".nupkg","")
