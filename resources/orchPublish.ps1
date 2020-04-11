@@ -1,12 +1,12 @@
 $auth = @{
-   tenancyName = $tenant
+   tenancyName = $env:tenant
    usernameOrEmailAddress = $user
    password = $pwd
 }
 
 Write-Output "Beginning UIPath Orchestrator Authentication"
 $authjson = $auth | ConvertTo-Json
-$authkey = Invoke-RestMethod -SkipCertificateCheck "$url/api/Account/Authenticate" -Method Post -Body $authjson -ContentType 'application/json'
+$authkey = Invoke-RestMethod -SkipCertificateCheck "$env:url/api/Account/Authenticate" -Method Post -Body $authjson -ContentType 'application/json'
 $authjson = $authkey | ConvertTo-Json
 $token = $authjson | ConvertFrom-Json
 Set-Variable -Name "ts" -Value $token.result
@@ -32,5 +32,5 @@ $FileContent.Headers.ContentType = [System.Net.Http.Headers.MediaTypeHeaderValue
 $MultipartContent = [System.Net.Http.MultipartFormDataContent]::new()
 $MultipartContent.Add($FileContent)
 
-Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent "$url/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage" -Method Post -Authentication Bearer -Token ($tokenstring)
+Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent "$env:url/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage" -Method Post -Authentication Bearer -Token ($tokenstring)
 Write-Output "The package has been successfully published to Orchestrator and nexus"
