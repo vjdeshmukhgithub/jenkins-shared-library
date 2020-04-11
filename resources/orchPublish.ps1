@@ -7,7 +7,6 @@ $auth = @{
 Write-Output "Beginning UIPath Orchestrator Authentication"
 $authjson = $auth | ConvertTo-Json
 Write-Output $auth
-Write-Output "$env:url/api/Account/Authenticate"
 $authkey = Invoke-RestMethod -SkipCertificateCheck "$env:url/api/Account/Authenticate" -Method Post -Body $authjson -ContentType 'application/json'
 $authjson = $authkey | ConvertTo-Json
 $token = $authjson | ConvertFrom-Json
