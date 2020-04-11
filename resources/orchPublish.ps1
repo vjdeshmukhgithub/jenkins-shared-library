@@ -1,5 +1,5 @@
 $auth = @{
-   tenancyName = $env:tenant
+   tenancyName = $env:tenancy
    usernameOrEmailAddress = $env:user
    password = $env:pwd
 }
