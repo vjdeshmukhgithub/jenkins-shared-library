@@ -1,11 +1,11 @@
 def call(String tenant) {
     withCredentials([usernamePassword( credentialsId: 'orchestrator-authentication', 
-                     usernameVariable: 'user', passwordVariable: 'pwd' )])
+                     usernameVariable: 'user', passwordVariable: 'pwd' )]) {
+        println "User: " + $user + " PWD: " + $pwd
 
-    println "User: " + $user + " PWD: " + $pwd
+        def psscript = libraryResource 'orchPublish.ps1 $tenant $user $pwd https://uipath.verticalapps.com'
 
-    def psscript = libraryResource 'orchPublish.ps1 $tenant $user $pwd https://uipath.verticalapps.com'
-
-    psCall = pwsh returnStdout: true, script: psscript
-    println psCall
+        psCall = pwsh returnStdout: true, script: psscript
+        println psCall           
+    }
 }
