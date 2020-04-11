@@ -10,7 +10,6 @@ $authkey = Invoke-RestMethod -SkipCertificateCheck "$($args[3])/api/Account/Auth
 $authjson = $authkey | ConvertTo-Json
 $token = $authjson | ConvertFrom-Json
 Set-Variable -Name "ts" -Value $token.result
-Write-Output "$ts"
 
 $tokenstring = ConvertTo-SecureString $ts -AsPlainText -Force
 
