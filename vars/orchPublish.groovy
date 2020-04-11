@@ -1,5 +1,5 @@
 def call(String tenant) {
-    withEnv(['url=https://uipath.verticalapps.com', 'tenancy='+$tenant]) {
+    withEnv(['url=https://uipath.verticalapps.com', 'tenancy=$tenant']) {
         withCredentials([usernamePassword( credentialsId: 'orchestrator-authentication', 
                         usernameVariable: 'user', passwordVariable: 'pwd' )]) {
             println "User: $user PWD: $pwd"
