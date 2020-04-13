@@ -1,6 +1,12 @@
-def call() {
-    def psscript = libraryResource 'orchPublish.ps1'
+def call(String tenant) {
+    withEnv(['url=https://uipath.verticalapps.com', 'tenancy='+tenant]) {
+        withCredentials([usernamePassword( credentialsId: 'orchestrator-authentication', 
+                        usernameVariable: 'user', passwordVariable: 'pwd' )]) {
 
-    psCall = pwsh returnStdout: true, script: psscript
-    println psCall
+            def psscript = libraryResource 'orchPublish.ps1'
+
+            psCall = pwsh returnStdout: true, script: psscript 
+            println psCall           
+        }
+    }
 }
