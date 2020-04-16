@@ -43,7 +43,7 @@ $release = @{
    Name = $PackageArray[0]
    EnvironmentId = "Development"
    ProcessKey = $PackageArray[0]
-   ProcessVersion = "$PackageArray[1].$PackageArray[2].$PackageArray[3]"
+   ProcessVersion = "$($PackageArray[1]).$($PackageArray[2]).$($PackageArray[3])"
 }
 Write-Output $release
 Invoke-RestMethod -SkipCertificateCheck -Body $release "$env:url/odata/Releases" -Method Post -Authentication Bearer -Token ($tokenstring)
