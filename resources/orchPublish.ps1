@@ -41,7 +41,7 @@ $PackageArray = $FieldName.split(".")
 
 $release = @{
    Name = $PackageArray[0]
-   EnvironmentId = "Development"
+   EnvironmentId = 1
    ProcessKey = $PackageArray[0]
    ProcessVersion = "$($PackageArray[1]).$($PackageArray[2]).$($PackageArray[3])"
 }
