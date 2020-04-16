@@ -39,14 +39,15 @@ Write-Output "Beginning Process Creation"
 
 $PackageArray = $FieldName.split(".")
 Write-Output $PackageArray[0]
-#$release = @{
-#   Name = $PackageArray[0],
-#   EnvironmentId = 0,
-#   ProcessKey = $PackageArray[0],
-   #ProcessVersion = "$PackageArray[1].$PackageArray[2].$PackageArray[3]" 
-#}
 
-#Write-Output $release
+$release = @{
+   Name = $PackageArray[0],
+   EnvironmentId = 0,
+   ProcessKey = $PackageArray[0],
+   ProcessVersion = "$PackageArray[1].$PackageArray[2].$PackageArray[3]" 
+}
+
+Write-Output $release
 
 #Invoke-RestMethod -SkipCertificateCheck -Body $release "$env:url/odata/Releases" -Method Post -Authentication Bearer -Token ($tokenstring)
 
