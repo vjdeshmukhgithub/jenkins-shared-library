@@ -43,7 +43,7 @@ $release = @{
    Name = $PackageArray[0],
    EnvironmentId = 0,
    ProcessKey = $PackageArray[0],
-   ProcessVersion = "$PackageArray[1].$PackageArray[2].$PackageArray[3]" 
+   #ProcessVersion = "$PackageArray[1].$PackageArray[2].$PackageArray[3]" 
 }
 
 Write-Output $release
