@@ -38,7 +38,7 @@ Write-Output "The package has been successfully published to Orchestrator and ne
 Write-Output "Beginning Process Creation"
 
 $PackageArray = $FieldName.split(".")
-Write-Output $PackageArray
+Write-Output $PackageArray[0]
 #$release = @{
 #   Name = $PackageArray[0],
 #   EnvironmentId = 0,
