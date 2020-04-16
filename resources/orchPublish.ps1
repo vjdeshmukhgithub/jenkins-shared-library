@@ -37,15 +37,16 @@ Write-Output "The package has been successfully published to Orchestrator and ne
 
 Write-Output "Beginning Process Creation"
 
-Write-Output $FieldName.split(".")
-#$PackageArray = $FieldName.split('.')
+$PackageArray = $FieldName.split(".")
 
-#$release = @{
-#   Name = $PackageArray[0],
-#   EnvironmentId = 0,
-#   ProcessKey = $PackageArray[0],
-#   ProcessVersion = "$PackageArray[1].$PackageArray[2].$PackageArray[3]" 
-#}
+$release = @{
+   Name = $PackageArray[0],
+   EnvironmentId = 0,
+   ProcessKey = $PackageArray[0],
+   ProcessVersion = "$PackageArray[1].$PackageArray[2].$PackageArray[3]" 
+}
+
+Write-Output $release
 
 #Invoke-RestMethod -SkipCertificateCheck -Body $release "$env:url/odata/Releases" -Method Post -Authentication Bearer -Token ($tokenstring)
 
