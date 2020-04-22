@@ -34,3 +34,18 @@ $MultipartContent.Add($FileContent)
 
 Invoke-RestMethod -SkipCertificateCheck -Body $MultipartContent "$env:url/odata/Processes/UiPath.Server.Configuration.OData.UploadPackage" -Method Post -Authentication Bearer -Token ($tokenstring)
 Write-Output "The package has been successfully published to Orchestrator and nexus"
+
+Write-Output "Beginning Process Creation"
+
+$PackageArray = $FieldName.split(".")
+
+$release = @{
+   Name = $PackageArray[0]
+   EnvironmentId = $env:environmentId
+   ProcessKey = $PackageArray[0]
+   ProcessVersion = "$($PackageArray[1]).$($PackageArray[2]).$($PackageArray[3])"
+}
+
+Invoke-RestMethod -SkipCertificateCheck -Body $release "$env:url/odata/Releases" -Method Post -Authentication Bearer -Token ($tokenstring)
+
+Write-Output "Process Successfully Created"
