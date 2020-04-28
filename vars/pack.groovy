@@ -1,4 +1,4 @@
 def call() {
     def psscript = libraryResource 'pack.ps1'
-    psCall = powershell returnStdout: true, script: psscript
+    psCall = pwsh returnStdout: true, script: psscript
 }
